@@ -38,6 +38,7 @@ android::linkerconfig::modules::Configuration CreateLegacyConfiguration(
       {Var("SYSTEM_EXT"), "legacy"},
       {Var("PRODUCT"), "legacy"},
       {"/vendor", "legacy"},
+      {"/vendor_extra", "legacy"},
       {"/odm", "legacy"},
       {"/sbin", "legacy"},
       // Except for /postinstall, where only /system and /product are searched

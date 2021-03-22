@@ -59,7 +59,7 @@ Namespace BuildVndkNamespace([[maybe_unused]] const Context& ctx,
     vndk_version = Var("PRODUCT_VNDK_VERSION");
   } else {
     // default for vendor
-    lib_paths = {"/odm/${LIB}/", "/vendor/${LIB}/"};
+    lib_paths = {"/odm/${LIB}/", "/vendor/${LIB}/", "/vendor_extra/${LIB}/"};
     vndk_version = Var("VENDOR_VNDK_VERSION");
   }
 
@@ -79,6 +79,8 @@ Namespace BuildVndkNamespace([[maybe_unused]] const Context& ctx,
     ns.AddPermittedPath("/odm/${LIB}/egl", AsanPath::WITH_DATA_ASAN);
     ns.AddPermittedPath("/vendor/${LIB}/hw", AsanPath::WITH_DATA_ASAN);
     ns.AddPermittedPath("/vendor/${LIB}/egl", AsanPath::WITH_DATA_ASAN);
+    ns.AddPermittedPath("/vendor_extra/${LIB}/hw", AsanPath::WITH_DATA_ASAN);
+    ns.AddPermittedPath("/vendor_extra/${LIB}/egl", AsanPath::WITH_DATA_ASAN);
     if (!is_vndklite) {
       ns.AddPermittedPath("/system/vendor/${LIB}/hw", AsanPath::NONE);
     }

@@ -33,14 +33,17 @@ Namespace BuildRsNamespace([[maybe_unused]] const Context& ctx) {
 
   ns.AddSearchPath("/odm/${LIB}/vndk-sp", AsanPath::WITH_DATA_ASAN);
   ns.AddSearchPath("/vendor/${LIB}/vndk-sp", AsanPath::WITH_DATA_ASAN);
+  ns.AddSearchPath("/vendor_extra/${LIB}/vndk-sp", AsanPath::WITH_DATA_ASAN);
   ns.AddSearchPath(
       "/apex/com.android.vndk.v" + Var("VENDOR_VNDK_VERSION") + "/${LIB}",
       AsanPath::SAME_PATH);
   ns.AddSearchPath("/odm/${LIB}", AsanPath::WITH_DATA_ASAN);
   ns.AddSearchPath("/vendor/${LIB}", AsanPath::WITH_DATA_ASAN);
+  ns.AddSearchPath("/vendor_extra/${LIB}", AsanPath::WITH_DATA_ASAN);
 
   ns.AddPermittedPath("/odm/${LIB}", AsanPath::WITH_DATA_ASAN);
   ns.AddPermittedPath("/vendor/${LIB}", AsanPath::WITH_DATA_ASAN);
+  ns.AddPermittedPath("/vendor_extra/${LIB}", AsanPath::WITH_DATA_ASAN);
   ns.AddPermittedPath("/system/vendor/${LIB}", AsanPath::NONE);
   ns.AddPermittedPath("/data", AsanPath::SAME_PATH);
 

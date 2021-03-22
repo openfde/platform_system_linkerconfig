@@ -75,10 +75,13 @@ Namespace BuildVendorDefaultNamespace([[maybe_unused]] const Context& ctx) {
   }
 
   ns.AddSearchPath("/vendor/${LIB}", AsanPath::WITH_DATA_ASAN);
+  ns.AddSearchPath("/vendor_extra/${LIB}", AsanPath::WITH_DATA_ASAN);
   // Allow loosen restriction between vndk and private platform libraries
   if (is_vndklite) {
     ns.AddSearchPath("/vendor/${LIB}/vndk", AsanPath::WITH_DATA_ASAN);
     ns.AddSearchPath("/vendor/${LIB}/vndk-sp", AsanPath::WITH_DATA_ASAN);
+    ns.AddSearchPath("/vendor_extra/${LIB}/vndk", AsanPath::WITH_DATA_ASAN);
+    ns.AddSearchPath("/vendor_extra/${LIB}/vndk-sp", AsanPath::WITH_DATA_ASAN);
   }
 
   // VNDK-Lite devices require broader access from vendor to system/product partition
@@ -94,9 +97,12 @@ Namespace BuildVendorDefaultNamespace([[maybe_unused]] const Context& ctx) {
 
   ns.AddSearchPath("/vendor/${LIB}/hw", AsanPath::WITH_DATA_ASAN);
   ns.AddSearchPath("/vendor/${LIB}/egl", AsanPath::WITH_DATA_ASAN);
+  ns.AddSearchPath("/vendor_extra/${LIB}/hw", AsanPath::WITH_DATA_ASAN);
+  ns.AddSearchPath("/vendor_extra/${LIB}/egl", AsanPath::WITH_DATA_ASAN);
 
   ns.AddPermittedPath("/odm", AsanPath::WITH_DATA_ASAN);
   ns.AddPermittedPath("/vendor", AsanPath::WITH_DATA_ASAN);
+  ns.AddPermittedPath("/vendor_extra", AsanPath::WITH_DATA_ASAN);
   ns.AddPermittedPath("/system/vendor", AsanPath::NONE);
 
   if (is_vndklite) {

@@ -49,6 +49,7 @@ Namespace BuildSystemDefaultNamespace([[maybe_unused]] const Context& ctx) {
   }
   if (!is_fully_treblelized) {
     ns.AddSearchPath("/vendor/${LIB}", AsanPath::WITH_DATA_ASAN);
+    ns.AddSearchPath("/vendor_extra/${LIB}", AsanPath::WITH_DATA_ASAN);
     ns.AddSearchPath("/odm/${LIB}", AsanPath::WITH_DATA_ASAN);
   }
 

@@ -67,6 +67,7 @@ android::linkerconfig::modules::Configuration CreateBaseConfiguration(
 
       {"/odm/bin/", "vendor"},
       {"/vendor/bin/", "vendor"},
+      {"/vendor_extra/bin/", "vendor"},
       {"/data/nativetest/odm", "vendor"},
       {"/data/nativetest64/odm", "vendor"},
       {"/data/benchmarktest/odm", "vendor"},
