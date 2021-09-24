@@ -81,6 +81,9 @@ Namespace BuildVndkNamespace([[maybe_unused]] const Context& ctx,
     ns.AddPermittedPath("/vendor/${LIB}/egl", AsanPath::WITH_DATA_ASAN);
     ns.AddPermittedPath("/vendor_extra/${LIB}/hw", AsanPath::WITH_DATA_ASAN);
     ns.AddPermittedPath("/vendor_extra/${LIB}/egl", AsanPath::WITH_DATA_ASAN);
+    if (is_vndklite) {
+      ns.AddPermittedPath("/system/${LIB}/hw", AsanPath::NONE);
+    }
     if (!is_vndklite) {
       ns.AddPermittedPath("/system/vendor/${LIB}/hw", AsanPath::NONE);
     }
