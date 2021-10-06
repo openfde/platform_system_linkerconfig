@@ -68,10 +68,13 @@ Namespace BuildVendorDefaultNamespace([[maybe_unused]] const Context& ctx) {
       "default", /*is_isolated=*/!is_vndklite, /*is_visible=*/!is_vndklite);
 
   ns.AddSearchPath("/odm/${LIB}", AsanPath::WITH_DATA_ASAN);
+  ns.AddSearchPath("/odm_extra/${LIB}", AsanPath::WITH_DATA_ASAN);
   // Allow loosen restriction between vndk and private platform libraries
   if (is_vndklite) {
     ns.AddSearchPath("/odm/${LIB}/vndk", AsanPath::WITH_DATA_ASAN);
     ns.AddSearchPath("/odm/${LIB}/vndk-sp", AsanPath::WITH_DATA_ASAN);
+    ns.AddSearchPath("/odm_extra/${LIB}/vndk", AsanPath::WITH_DATA_ASAN);
+    ns.AddSearchPath("/odm_extra/${LIB}/vndk-sp", AsanPath::WITH_DATA_ASAN);
   }
 
   ns.AddSearchPath("/vendor/${LIB}", AsanPath::WITH_DATA_ASAN);
@@ -101,6 +104,7 @@ Namespace BuildVendorDefaultNamespace([[maybe_unused]] const Context& ctx) {
   ns.AddSearchPath("/vendor_extra/${LIB}/egl", AsanPath::WITH_DATA_ASAN);
 
   ns.AddPermittedPath("/odm", AsanPath::WITH_DATA_ASAN);
+  ns.AddPermittedPath("/odm_extra", AsanPath::WITH_DATA_ASAN);
   ns.AddPermittedPath("/vendor", AsanPath::WITH_DATA_ASAN);
   ns.AddPermittedPath("/vendor_extra", AsanPath::WITH_DATA_ASAN);
   ns.AddPermittedPath("/system/vendor", AsanPath::NONE);

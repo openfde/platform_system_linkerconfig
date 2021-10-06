@@ -40,6 +40,7 @@ android::linkerconfig::modules::Configuration CreateLegacyConfiguration(
       {"/vendor", "legacy"},
       {"/vendor_extra", "legacy"},
       {"/odm", "legacy"},
+      {"/odm_extra", "legacy"},
       {"/sbin", "legacy"},
       // Except for /postinstall, where only /system and /product are searched
       {"/postinstall", "postinstall"},

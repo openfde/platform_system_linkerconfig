@@ -32,6 +32,7 @@ Namespace BuildUnrestrictedDefaultNamespace([[maybe_unused]] const Context& ctx)
   ns.AddSearchPath("/system/${LIB}", AsanPath::WITH_DATA_ASAN);
   ns.AddSearchPath(Var("SYSTEM_EXT") + "/${LIB}", AsanPath::WITH_DATA_ASAN);
   ns.AddSearchPath("/odm/${LIB}", AsanPath::WITH_DATA_ASAN);
+  ns.AddSearchPath("/odm_extra/${LIB}", AsanPath::WITH_DATA_ASAN);
   ns.AddSearchPath("/vendor/${LIB}", AsanPath::WITH_DATA_ASAN);
   ns.AddSearchPath("/vendor_extra/${LIB}", AsanPath::WITH_DATA_ASAN);
   ns.AddSearchPath(Var("PRODUCT") + "/${LIB}", AsanPath::WITH_DATA_ASAN);

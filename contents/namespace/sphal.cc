@@ -39,6 +39,7 @@ Namespace BuildSphalNamespace([[maybe_unused]] const Context& ctx) {
                /*is_isolated=*/!ctx.IsUnrestrictedSection(),
                /*is_visible=*/true);
   ns.AddSearchPath("/odm/${LIB}", AsanPath::WITH_DATA_ASAN);
+  ns.AddSearchPath("/odm_extra/${LIB}", AsanPath::WITH_DATA_ASAN);
   ns.AddSearchPath("/vendor/${LIB}", AsanPath::WITH_DATA_ASAN);
   ns.AddSearchPath("/vendor/${LIB}/egl", AsanPath::WITH_DATA_ASAN);
   ns.AddSearchPath("/vendor/${LIB}/hw", AsanPath::NONE);
@@ -47,6 +48,7 @@ Namespace BuildSphalNamespace([[maybe_unused]] const Context& ctx) {
   ns.AddSearchPath("/vendor_extra/${LIB}/hw", AsanPath::NONE);
 
   ns.AddPermittedPath("/odm/${LIB}", AsanPath::WITH_DATA_ASAN);
+  ns.AddPermittedPath("/odm_extra/${LIB}", AsanPath::WITH_DATA_ASAN);
   ns.AddPermittedPath("/vendor/${LIB}", AsanPath::WITH_DATA_ASAN);
   ns.AddPermittedPath("/vendor_extra/${LIB}", AsanPath::WITH_DATA_ASAN);
   ns.AddPermittedPath("/system/vendor/${LIB}", AsanPath::NONE);
